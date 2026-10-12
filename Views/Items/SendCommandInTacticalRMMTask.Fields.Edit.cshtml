@@ -8,7 +8,7 @@
         <div class="form-group" asp-validation-class-for="Code">
             <label asp-for="Code">
                 دستور
-                <span class="text-danger">*</span>
+    
             </label>
             <input type="text" asp-for="Code" class="form-control" />
             <span class="hint"> شناسه دستور در Tactical-RMM که قصد دارید اجرا شود را درج
@@ -17,7 +17,7 @@
             <div class="form-group" asp-validation-class-for="Shell">
                 <label asp-for="Shell">
                     شل
-                    <span class="text-danger">*</span>
+                   
                 </label>
                 <textarea rows="7" asp-for="Shell" class="form-control"></textarea>
                 <span class="hint">شل مورد نظر جهت اجرای دستور در Tactical-RMM را در این
@@ -28,7 +28,7 @@
                 <div class="form-group" asp-validation-class-for="Agent">
                     <label asp-for="Agent">
                         عامل
-                        <span class="text-danger">*</span>
+                        
                     </label>
                     <input type="text" asp-for="Agent" class="form-control" />
                     <span class="hint">
