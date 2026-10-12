@@ -85,13 +85,13 @@ namespace Summary.TacticalRMM.Settings
         }
     }
 
-    public class IdealCrmSettingsConfiguration : IConfigureOptions<TacticalRMMSettings>
+    public class TacticalRMMSettingsConfiguration : IConfigureOptions<TacticalRMMSettings>
     {
         private readonly ISiteService _site;
-        private readonly ILogger<IdealCrmSettingsConfiguration> _logger;
+        private readonly ILogger<TacticalRMMSettingsConfiguration> _logger;
 
-        public IdealCrmSettingsConfiguration(ISiteService site,
-            ILogger<IdealCrmSettingsConfiguration> logger)
+        public TacticalRMMSettingsConfiguration(ISiteService site,
+            ILogger<TacticalRMMSettingsConfiguration> logger)
         {
             _site = site;
             _logger = logger;
