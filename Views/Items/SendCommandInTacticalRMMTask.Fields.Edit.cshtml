@@ -5,25 +5,24 @@
 <div class="row">
    
     <div class="col-md-3">
-        <div class="form-group" asp-validation-class-for="Code">
-            <label asp-for="Code">
-                دستور
+        <div class="form-group" asp-validation-class-for="Shell">
+            <label asp-for="Shell">
+                شل
     
             </label>
-            <input type="text" asp-for="Code" class="form-control" />
-            <span class="hint"> شناسه دستور در Tactical-RMM که قصد دارید اجرا شود را درج
-                نمایید.</span>
+            <input type="text" asp-for="Shell" class="form-control" />
+            <span class="hint"> شل مورد نظر جهت اجرای دستور در Tactical-RMM را در این فیلد درج نمایید.</span>
             </div>
          
         </div>
         <div class="col-md-3">
-            <div class="form-group" asp-validation-class-for="Shell">
-                <label asp-for="Shell">
-                    شل
+            <div class="form-group" asp-validation-class-for="Code">
+                <label asp-for="Code">
+                    دستور
                    
                 </label>
-                <textarea rows="7" asp-for="Shell" class="form-control"></textarea>
-                <span class="hint">شل مورد نظر جهت اجرای دستور در Tactical-RMM را در این
+                <textarea rows="7" asp-for="Code" class="form-control"></textarea>
+                <span class="hint">دستور مورد نظر جهت اجرای در Tactical-RMM را در این
                     فیلد درج نمایید.</span>
                 </div>
             </div>
