@@ -19,8 +19,11 @@ namespace Summary.TacticalRMM.Workflows.Task.Command.Send
             T = t;
             _commandService = commandService;
         }
+        
         public override string Name => nameof(SendCommandInTacticalRMMTask);
+        
         public override LocalizedString DisplayText => T[TacticalRMM.Localize.SOfSendCommandInTacticalRMM];
+       
         public override LocalizedString Category => T[TacticalRMM.Public.Category];
 
         public override IEnumerable<Outcome> GetPossibleOutcomes(WorkflowExecutionContext workflowContext,
@@ -36,12 +39,26 @@ namespace Summary.TacticalRMM.Workflows.Task.Command.Send
             get => GetProperty(()=>string.Empty);
             set => SetProperty(value);
         }
+
         public string Shell
         {
             get => GetProperty(()=>string.Empty);
             set => SetProperty(value);
         }
+
         public string Agent
+        {
+            get => GetProperty(()=>string.Empty);
+            set => SetProperty(value);
+        }
+
+        public string Client
+        {
+            get => GetProperty(()=>string.Empty);
+            set => SetProperty(value);
+        }
+
+        public string Site
         {
             get => GetProperty(()=>string.Empty);
             set => SetProperty(value);
@@ -53,15 +70,17 @@ namespace Summary.TacticalRMM.Workflows.Task.Command.Send
             var code = workflowContext.GetInputOrDefault(Code);
             var shell = workflowContext.GetInputOrDefault(Shell);
             var agent = workflowContext.GetInputOrDefault(Agent);
+            var client = workflowContext.GetInputOrDefault(Client);
+            var site = workflowContext.GetInputOrDefault(Site);
 
-            await _commandService.SendCommandAsync(Code,
-                Shell,
-                Agent
+            await _commandService.SendCommandAsync(code,
+                shell,
+                agent,
+                client,
+                site
             );
 
             return Outcomes(TacticalRMM.Workflows.Done);
         }
-
-
     }
 }

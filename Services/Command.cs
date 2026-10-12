@@ -15,7 +15,9 @@ namespace Summary.TacticalRMM.Services
     {
         Task SendCommandAsync(string code,
            string shell,
-           string agent
+           string agent,
+           string client,
+           string site
        );
     }
     public class CommandService : ICommandService
@@ -30,10 +32,10 @@ namespace Summary.TacticalRMM.Services
 
         public Task SendCommandAsync(string code,
             string shell,
-            string agent
-        )
+            string agent,
+            string client,
+            string site)
         {
-            // Implement the logic to send the command here.
             return Task.CompletedTask;
         }
     }
