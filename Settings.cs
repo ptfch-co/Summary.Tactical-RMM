@@ -22,6 +22,14 @@ namespace Summary.TacticalRMM.Settings
             get => api_address?.TrimEnd('/');
             set => api_address = value;
         }
+        
+        private string token;
+        public string Token
+        {
+            get => token;
+            set => token = value;
+        }
+    
     }
 
     public class IdealCrmSettingsDisplayDriver : SectionDisplayDriver<ISite,
@@ -55,6 +63,7 @@ namespace Summary.TacticalRMM.Settings
             var init = Initialize<TacticalRMMSettings>("TacticalRMMSettings_Edit", model =>
             {
                 model.ApiAddress = settings.ApiAddress;
+                model.Token = settings.Token;
             });
 
             return init.Location("Content:5").OnGroup("TacticalRMM");
@@ -93,6 +102,7 @@ namespace Summary.TacticalRMM.Settings
         {
             var settings = _site.GetSiteSettingsAsync().GetAwaiter().GetResult().As<TacticalRMMSettings>();
             options.ApiAddress = settings.ApiAddress;
+            options.Token = settings.Token;
         }
     }
 }
