@@ -1,0 +1,14 @@
+@model ActivityViewModel<Summary.TacticalRMM.Workflows.Task.Command.Send.SendCommandInTacticalRMMTask>
+@using Core.Workflows.Helpers
+@using Core.Workflows.ViewModels
+@using Summary.TacticalRMM
+
+<header>
+    <h4>
+        @Model.Activity.GetTitleOrDefault(() =>  T[TacticalRMM.Localize.SOfSendCommandInTacticalRMM])
+        
+    </h4>
+    <em>
+        &quot;Tactical-RMM - Send Command&quot;
+    </em>
+</header>
