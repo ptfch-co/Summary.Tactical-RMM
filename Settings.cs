@@ -1,6 +1,7 @@
 namespace Summary.TacticalRMM.Settings
 {
     using System.Threading.Tasks;
+    using System.ComponentModel.DataAnnotations;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Http;
     using Microsoft.Extensions.Logging;
@@ -13,23 +14,21 @@ namespace Summary.TacticalRMM.Settings
     using Core.Settings;
     using Core.Workflows;
 
+
     public class TacticalRMMSettings
     {
         private string api_address;
 
+        [Required]
         public string ApiAddress
         {
             get => api_address?.TrimEnd('/');
             set => api_address = value;
         }
-        
-        private string token;
-        public string Token
-        {
-            get => token;
-            set => token = value;
-        }
-    
+
+        [Required]
+        public string Token { get; set; }
+
     }
 
     public class IdealCrmSettingsDisplayDriver : SectionDisplayDriver<ISite,
