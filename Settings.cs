@@ -31,7 +31,7 @@ namespace Summary.TacticalRMM.Settings
 
     }
 
-    public class IdealCrmSettingsDisplayDriver : SectionDisplayDriver<ISite,
+    public class TacticalRMMSettingsDisplayDriver : SectionDisplayDriver<ISite,
         TacticalRMMSettings>
     {
         private readonly IShellHost _host;
@@ -39,7 +39,7 @@ namespace Summary.TacticalRMM.Settings
         private readonly IHttpContextAccessor _httpAccessor;
         private readonly IAuthorizationService _authorize;
 
-        public IdealCrmSettingsDisplayDriver(IShellHost host,
+        public TacticalRMMSettingsDisplayDriver(IShellHost host,
             ShellSettings settings,
             IHttpContextAccessor httpContext,
             IAuthorizationService authorize)
