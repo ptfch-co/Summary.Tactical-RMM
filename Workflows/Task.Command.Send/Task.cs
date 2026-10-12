@@ -13,10 +13,10 @@ namespace Summary.TacticalRMM.Workflows.Task.Command.Send
         private readonly IStringLocalizer<SendCommandInTacticalRMMTask> T;
         private readonly ICommandService _commandService;
 
-        public SendCommandInTacticalRMMTask(IStringLocalizer<SendCommandInTacticalRMMTask> localizer,
+        public SendCommandInTacticalRMMTask(IStringLocalizer<SendCommandInTacticalRMMTask> t,
             ICommandService commandService)
         {
-            T = localizer;
+            T = t;
             _commandService = commandService;
         }
         public override string Name => nameof(SendCommandInTacticalRMMTask);

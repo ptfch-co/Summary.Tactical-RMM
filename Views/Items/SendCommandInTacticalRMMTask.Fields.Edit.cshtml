@@ -3,39 +3,39 @@
 @inject Microsoft.Extensions.Options.IOptions<Summary.TacticalRMM.Settings.TacticalRMMSettings> Options
 
 <div class="row">
-   
     <div class="col-md-3">
-        <div class="form-group" asp-validation-class-for="Shell">
-            <label asp-for="Shell">
-                شل
-    
+        <div class="form-group" asp-validation-class-for="Code">
+            <label asp-for="Code">
+                دستور
+                   
             </label>
-            <input type="text" asp-for="Shell" class="form-control" />
-            <span class="hint"> شل مورد نظر جهت اجرای دستور در Tactical-RMM را در این فیلد درج نمایید.</span>
+            <textarea rows="7" asp-for="Code" class="form-control"></textarea>
+            <span class="hint">دستور مورد نظر جهت اجرای در Tactical-RMM را در این
+                فیلد درج نمایید.</span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group" asp-validation-class-for="Shell">
+                <label asp-for="Shell">
+                    شل
+    
+                </label>
+                <input type="text" asp-for="Shell" class="form-control" />
+                <span class="hint"> شل مورد نظر جهت اجرای دستور در Tactical-RMM را در این فیلد درج نمایید.</span>
             </div>
          
         </div>
+        
         <div class="col-md-3">
-            <div class="form-group" asp-validation-class-for="Code">
-                <label asp-for="Code">
-                    دستور
-                   
-                </label>
-                <textarea rows="7" asp-for="Code" class="form-control"></textarea>
-                <span class="hint">دستور مورد نظر جهت اجرای در Tactical-RMM را در این
-                    فیلد درج نمایید.</span>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-group" asp-validation-class-for="Agent">
-                    <label asp-for="Agent">
-                        عامل
+            <div class="form-group" asp-validation-class-for="Agent">
+                <label asp-for="Agent">
+                    عامل
                         
-                    </label>
-                    <input type="text" asp-for="Agent" class="form-control" />
-                    <span class="hint">
-                        در این فیلد شناسه عامل در Tactical-RMM که قصد دارید دستور بر روی آن اجرا شود را وارد کنید.
-                    </span>
-                </div>
+                </label>
+                <input type="text" asp-for="Agent" class="form-control" />
+                <span class="hint">
+                    در این فیلد شناسه عامل در Tactical-RMM که قصد دارید دستور بر روی آن اجرا شود را وارد کنید.
+                </span>
             </div>
         </div>
+    </div>
