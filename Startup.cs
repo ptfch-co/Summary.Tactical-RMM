@@ -17,15 +17,12 @@ namespace Summary.TacticalRMM
     {
         public override void ConfigureServices(IServiceCollection services)
         {
-
             services.AddScoped<IDisplayDriver<ISite>, TacticalRMMSettingsDisplayDriver>();
             services.AddScoped<ICommandService, CommandService>();
 
             services.AddTransient<IConfigureOptions<TacticalRMMSettings>, TacticalRMMSettingsConfiguration>();
             
-            
             services.AddActivity<SendCommandInTacticalRMMTask, SendCommandInTacticalRMMDisplay>();
-
         }
     }
 }

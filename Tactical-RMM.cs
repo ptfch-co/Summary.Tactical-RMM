@@ -21,8 +21,8 @@ namespace Summary.TacticalRMM
         {
             public const string SubjectOfTacticalRMM = "Tactical-RMM";
             public const string DescriptionOfTacticalRMM = "مجموعه از رخداد و تسک‌ها جهت ارتباط با Tactical-RMM.";
-           public const string  SOfSendCommandInTacticalRMM="ارسال دستور در Tactical-RMM";
-           public const string  DOfSendCommandInTacticalRMM="توضیحات ارسال دستور در Tactical-RMM";
+            public const string SOfSendCommandInTacticalRMM = "ارسال دستور در Tactical-RMM";
+            public const string DOfSendCommandInTacticalRMM = "توضیحات ارسال دستور در Tactical-RMM";
         }
     }
 }
