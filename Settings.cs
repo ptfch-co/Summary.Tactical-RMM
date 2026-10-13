@@ -1,6 +1,7 @@
 namespace Summary.TacticalRMM.Settings
 {
     using System.Threading.Tasks;
+    using System.ComponentModel.DataAnnotations;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Http;
     using Microsoft.Extensions.Logging;
@@ -13,18 +14,24 @@ namespace Summary.TacticalRMM.Settings
     using Core.Settings;
     using Core.Workflows;
 
+
     public class TacticalRMMSettings
     {
         private string api_address;
 
+        [Required]
         public string ApiAddress
         {
             get => api_address?.TrimEnd('/');
             set => api_address = value;
         }
+
+        [Required]
+        public string Token { get; set; }
+
     }
 
-    public class IdealCrmSettingsDisplayDriver : SectionDisplayDriver<ISite,
+    public class TacticalRMMSettingsDisplayDriver : SectionDisplayDriver<ISite,
         TacticalRMMSettings>
     {
         private readonly IShellHost _host;
@@ -32,7 +39,7 @@ namespace Summary.TacticalRMM.Settings
         private readonly IHttpContextAccessor _httpAccessor;
         private readonly IAuthorizationService _authorize;
 
-        public IdealCrmSettingsDisplayDriver(IShellHost host,
+        public TacticalRMMSettingsDisplayDriver(IShellHost host,
             ShellSettings settings,
             IHttpContextAccessor httpContext,
             IAuthorizationService authorize)
@@ -55,6 +62,7 @@ namespace Summary.TacticalRMM.Settings
             var init = Initialize<TacticalRMMSettings>("TacticalRMMSettings_Edit", model =>
             {
                 model.ApiAddress = settings.ApiAddress;
+                model.Token = settings.Token;
             });
 
             return init.Location("Content:5").OnGroup("TacticalRMM");
@@ -77,13 +85,13 @@ namespace Summary.TacticalRMM.Settings
         }
     }
 
-    public class IdealCrmSettingsConfiguration : IConfigureOptions<TacticalRMMSettings>
+    public class TacticalRMMSettingsConfiguration : IConfigureOptions<TacticalRMMSettings>
     {
         private readonly ISiteService _site;
-        private readonly ILogger<IdealCrmSettingsConfiguration> _logger;
+        private readonly ILogger<TacticalRMMSettingsConfiguration> _logger;
 
-        public IdealCrmSettingsConfiguration(ISiteService site,
-            ILogger<IdealCrmSettingsConfiguration> logger)
+        public TacticalRMMSettingsConfiguration(ISiteService site,
+            ILogger<TacticalRMMSettingsConfiguration> logger)
         {
             _site = site;
             _logger = logger;
@@ -93,6 +101,7 @@ namespace Summary.TacticalRMM.Settings
         {
             var settings = _site.GetSiteSettingsAsync().GetAwaiter().GetResult().As<TacticalRMMSettings>();
             options.ApiAddress = settings.ApiAddress;
+            options.Token = settings.Token;
         }
     }
 }

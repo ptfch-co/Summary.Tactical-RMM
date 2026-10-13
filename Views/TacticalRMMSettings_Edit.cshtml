@@ -1,10 +1,31 @@
-@model Summary.IdealCrm.Settings.IdealCrmSettings
+@model Summary.TacticalRMM.Settings.TacticalRMMSettings
 
 <div class="row">
   <div class="col-md-3">
     <div class="form-group">
-      <label asp-for="ApiAddress">آدرس وب سرویس:</label>
+      <label asp-for="ApiAddress">
+        آدرس وب سرویس<span class="text-danger">*</span>
+      </label>
       <input class="form-control" type="text" asp-for="ApiAddress" />
+      <span class='hint'>
+        در این فیلد، آدرس وب‌سرویس پنل
+        Tactical RMM را وارد نمایید تا ماژول بتواند از طریق آن
+        با API پنل ارتباط برقرار کند.
+        مثال: https://your-tactical-rmm-instance.com
+      </span>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label asp-for="Token">
+        توکن<span class="text-danger">*</span>
+      </label>
+      <input class="form-control" type="text" asp-for="Token" />
+      <span class="hint">در این فیلد، توکن دسترسی به API پنل
+        Tactical RMM را وارد نمایید
+        تا ماژول بتواند درخواست‌های موردنیاز را با استفاده از این توکن ارسال کند.
+        مثال: your-api-token-here
+      </span>
     </div>
   </div>
 </div>
