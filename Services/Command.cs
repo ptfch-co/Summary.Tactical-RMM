@@ -42,15 +42,15 @@ namespace Summary.TacticalRMM.Services
         {
             var agents = await _client.SendGetRequestAsync<IEnumerable<AgentInfo>>(
                 $"{_options.ApiAddress}/agents",
-                new KeyValuePair<string, string>("X-API-KEY",_options.Token)
+                new KeyValuePair<string, string>("X-API-KEY", _options.Token)
             );
 
-            var agentId = agents.FirstOrDefault(a => 
-               a.Hostname == agent && 
-               a.Client_Name == client && 
+            var agentId = agents.FirstOrDefault(a =>
+               a.Hostname == agent &&
+               a.Client_Name == client &&
                a.Site_Name == site)?.Agent_Id;
 
-            if(agentId == null) throw new NotImplementedException();
+            if (agentId == null) throw new NotImplementedException();
 
             var data = new
             {
@@ -61,7 +61,14 @@ namespace Summary.TacticalRMM.Services
 
             await _client.SendPostRequestAsync<string>(
                 $"{_options.ApiAddress}/agents/{agentId}/cmd/",
-                data
+                data,
+                new[]
+                {
+                    new KeyValuePair<string, string>(
+                        "X-API-KEY",
+                        _options.Token
+                    )
+               }
             );
         }
     }
