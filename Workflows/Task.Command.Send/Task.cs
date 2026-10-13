@@ -19,11 +19,11 @@ namespace Summary.TacticalRMM.Workflows.Task.Command.Send
             T = t;
             _commandService = commandService;
         }
-        
+
         public override string Name => nameof(SendCommandInTacticalRMMTask);
-        
+
         public override LocalizedString DisplayText => T[TacticalRMM.Localize.SOfSendCommandInTacticalRMM];
-       
+
         public override LocalizedString Category => T[TacticalRMM.Public.Category];
 
         public override IEnumerable<Outcome> GetPossibleOutcomes(WorkflowExecutionContext workflowContext,
@@ -36,31 +36,31 @@ namespace Summary.TacticalRMM.Workflows.Task.Command.Send
 
         public string Code
         {
-            get => GetProperty(()=>string.Empty);
+            get => GetProperty(()=> string.Empty);
             set => SetProperty(value);
         }
 
         public string Shell
         {
-            get => GetProperty(()=>string.Empty);
+            get => GetProperty(()=> string.Empty);
             set => SetProperty(value);
         }
 
         public string Agent
         {
-            get => GetProperty(()=>string.Empty);
+            get => GetProperty(()=> string.Empty);
             set => SetProperty(value);
         }
 
         public string Client
         {
-            get => GetProperty(()=>string.Empty);
+            get => GetProperty(()=> string.Empty);
             set => SetProperty(value);
         }
 
         public string Site
         {
-            get => GetProperty(()=>string.Empty);
+            get => GetProperty(()=> string.Empty);
             set => SetProperty(value);
         }
 

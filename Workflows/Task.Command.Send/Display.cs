@@ -1,10 +1,9 @@
 namespace Summary.TacticalRMM.Workflows.Task.Command.Send
 {
-    using System;
     using Core.Workflows.Display;
 
     public class SendCommandInTacticalRMMDisplay : ActivityDisplayDriver<SendCommandInTacticalRMMTask,
-    SendCommandInTacticalRMMViewModel>
+        SendCommandInTacticalRMMViewModel>
     {
         protected override void EditActivity(SendCommandInTacticalRMMTask activity, SendCommandInTacticalRMMViewModel model)
         {
@@ -16,7 +15,7 @@ namespace Summary.TacticalRMM.Workflows.Task.Command.Send
         }
 
         protected override void UpdateActivity(SendCommandInTacticalRMMViewModel model,
-         SendCommandInTacticalRMMTask activity)
+            SendCommandInTacticalRMMTask activity)
         {
             activity.Code = model.Code;
             activity.Shell = model.Shell;
@@ -24,6 +23,5 @@ namespace Summary.TacticalRMM.Workflows.Task.Command.Send
             activity.Client = model.Client;
             activity.Site = model.Site;
         }
-
     }
 }
