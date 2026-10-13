@@ -19,6 +19,7 @@ namespace Summary.TacticalRMM
         {
             services.AddScoped<IDisplayDriver<ISite>, TacticalRMMSettingsDisplayDriver>();
             services.AddScoped<ICommandService, CommandService>();
+            services.AddScoped<INavigationProvider, Menu>();
 
             services.AddTransient<IConfigureOptions<TacticalRMMSettings>, TacticalRMMSettingsConfiguration>();
             
