@@ -50,23 +50,31 @@ namespace Summary.TacticalRMM.Services
                a.Client_Name == client &&
                a.Site_Name == site)?.Agent_Id;
 
-            if (agentId == null) throw new NotImplementedException();
+            var exception_log = new
+            {
+                hostname = agent,
+                client_name = client,
+                site_name = site
+            };
+
+            if (agentId == null) throw new WorkflowException(
+                "سیستم قادر به یافتن PC با مشخصات داده شده نیست. لطفاً مطمئن شوید که اطلاعات وارده شده صحیح هستند.",
+                null,
+                JsonConvert.SerializeObject(exception_log)
+            );
 
             var data = new
             {
                 cmd = code,
                 shell = shell,
-                timeout=90,
+                timeout = 90,
                 run_as_user = false
             };
 
             await _client.SendPostRequestAsync<string>(
                 $"{_options.ApiAddress}/agents/{agentId}/cmd/",
                 data,
-                new[]
-                {
-                  new KeyValuePair<string, string>("X-API-KEY",_options.Token)
-                }
+                new[] { new KeyValuePair<string, string>("X-API-KEY",_options.Token) }
             );
         }
     }
