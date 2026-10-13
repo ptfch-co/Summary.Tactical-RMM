@@ -12,7 +12,6 @@ namespace Summary.TacticalRMM.Workflows.Task.Command.Send
         public string Agent { get; set; }
         [Required]
         public string Client { get; set; }
-
         [Required]
         public string Site { get; set; }
     }

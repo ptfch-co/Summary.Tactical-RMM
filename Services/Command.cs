@@ -41,7 +41,8 @@ namespace Summary.TacticalRMM.Services
             string site)
         {
             var agents = await _client.SendGetRequestAsync<IEnumerable<AgentInfo>>(
-                $"{_options.ApiAddress}/agents"
+                $"{_options.ApiAddress}/agents",
+                new KeyValuePair<string, string>("X-API-KEY",_options.Token)
             );
 
             var agentId = agents.FirstOrDefault(a => 
