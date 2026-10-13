@@ -54,9 +54,10 @@ namespace Summary.TacticalRMM.Services
 
             var data = new
             {
-                agent_id = agentId,
+                cmd = code,
                 shell = shell,
-                code = code
+                timeout=90,
+                run_as_user = false
             };
 
             await _client.SendPostRequestAsync<string>(
@@ -64,11 +65,8 @@ namespace Summary.TacticalRMM.Services
                 data,
                 new[]
                 {
-                    new KeyValuePair<string, string>(
-                        "X-API-KEY",
-                        _options.Token
-                    )
-               }
+                  new KeyValuePair<string, string>("X-API-KEY",_options.Token)
+                }
             );
         }
     }
